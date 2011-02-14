@@ -1,0 +1,71 @@
+#################################
+#
+#   iLCSoft release - v01-10-01
+#
+#################################
+
+-------------------------------------------------------------------
+ iLCSoft release v01-10-01 is an exact copy of v01-10 except for
+ 3 packages (LCCD, MarlinReco and ilcinstall). See changes below:
+
+
+
+    LCCD ChangeLog:
+    -------------------------------------------------------------------------
+    old version: v01-01
+    new version: v01-01-01
+
+
+    release notes (v01-01-01):
+    --------------------------
+
+        - fixed lcio namespace issue in DataFileHandler.cc
+            missing namespace meant lcio exception DataNotAvailableException
+            was not caught as intended
+
+        - made gcc4 compliant
+
+
+
+
+    MarlinReco ChangeLog:
+    -------------------------------------------------------------------------
+    old version: v00-19
+    new version: v00-19-01
+
+
+    release notes (v00-19-01):
+    --------------------------
+
+        * [r2031] TrackDigi/TPCDigi/src/TPCDigiProcessor.cc: fixed a bug
+          where if lowpt hits were present in an event yet no pad row based
+          hits were present then _tpcRowHits was not correctly initialised.
+          Also fixed instance hard coded double hit res in z, it was set to
+          5 which was the default value and that used for studies, so no
+          expect change in behaviour. Also corrected Calculation of
+          pathlength in z for hit merging. It was incorrectly set to
+          pathlength*(pz/pt).
+
+
+
+    ilcinstall ChangeLog:
+    -------------------------------------------------------------------------
+    old version: v01-10
+    new version: v01-10-01
+
+
+    release notes (v01-10-01):
+    --------------------------
+
+        skip building of Mokka libCGAPack.so (causing too many library
+        dependencies being exported in the link process to libMarlinTPC.so)
+
+     - bug fixes:
+
+        * [r1399] ilcsoft/mokka.py: added unset G4VIS_USE_OIX (previously
+          G4VIS_USE_OIX_DRIVER). This bug caused Mokka to link against
+          libInventor.so and libInventorXt.so
+
+        * [r1398] ilcsoft/geant4.py: added G4REALSURFACEDATA (new in 9.3)
+        * [r1397] ilcsoft/fastjet.py: patched for macosx
+

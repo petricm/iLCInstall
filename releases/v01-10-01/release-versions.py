@@ -1,6 +1,6 @@
 ###########################################
 #
-# iLCSoft versions for release v01-10
+# iLCSoft versions for release v01-10-01
 #
 # F.Gaede, DESY 07.10.2010
 #
@@ -8,7 +8,7 @@
 
 
 # --------- ilcsoft release version ------------------------------------------
-ilcsoft_release='v01-10'
+ilcsoft_release='v01-10-01'
 # ----------------------------------------------------------------------------
 
 
@@ -81,7 +81,7 @@ KalTest_version = "v01-00"
 
 KalDet_version = "v01-00"
 
-LCCD_version = "v01-01"
+LCCD_version = "v01-01-01"
 
 RAIDA_version = "v01-05" 
 
@@ -91,7 +91,7 @@ Marlin_version = "v00-13-01"
 
 Mokka_version = "mokka-07-06"
 
-MarlinReco_version = "v00-19"
+MarlinReco_version = "v00-19-01"
 
 PandoraPFA_version = "v03-02-02" 
 
