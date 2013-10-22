@@ -21,7 +21,7 @@ class Eutelescope(MarlinPKG):
         self.reqmodules = [ "Marlin",  "LCIO" ]
 
         # optional modules
-        self.optmodules = [ "GEAR", "AIDA" , "MarlinUtil", "CLHEP", "GSL", "CED", "ROOT" ]
+        self.optmodules = [ "GEAR", "AIDA" , "MarlinUtil", "CLHEP", "GSL", "CED", "ROOT", "GBL" ]
 
         # cvs root
         self.download.root = "eutelescope"
@@ -46,9 +46,8 @@ class Eutelescope(MarlinPKG):
         if self.env.get( "EUDAQ_VERSION", "" ):
 
             # ----- BUILD EUDAQ ---------------------------------
-            os.chdir( self.installPath )
-            #os.system( "svn co http://svn.hepforge.org/eudaq/%s eudaq/%s" % (self.env["EUDAQ_VERSION"], self.env["EUDAQ_VERSION"]) )
-            os.system( "svn co http://eudaq.hepforge.org/svn/%s eudaq/%s" % (self.env["EUDAQ_VERSION"], self.env["EUDAQ_VERSION"]) )
+            os.chdir( self.installPath+"/external" )
+            os.system( "svn co https://github.com/eudaq/eudaq/%s eudaq/%s" % (self.env["EUDAQ_VERSION"], os.path.basename(self.env["EUDAQ_VERSION"])) )
 
             os.chdir( self.env[ "EUDAQ" ] ) # needs to be defined in preCheckDeps (so it is written to build_env.sh)
 
@@ -66,7 +65,7 @@ class Eutelescope(MarlinPKG):
 
         if self.env.get( "MILLEPEDEII_VERSION", "" ):
             # ----- BUILD MILLEPEDEII ---------------------------
-            os.chdir( self.installPath )
+            os.chdir( self.installPath+"/external" )
             os.system( "svn co https://svnsrv.desy.de/public/MillepedeII/%s millepede2/%s" % (self.env["MILLEPEDEII_VERSION"], self.env["MILLEPEDEII_VERSION"]) )
             os.chdir( self.env[ "MILLEPEDEII" ] ) # needs to be defined in preCheckDeps (so it is written to build_env.sh)
             os.system( "make" )
@@ -76,10 +75,10 @@ class Eutelescope(MarlinPKG):
         MarlinPKG.preCheckDeps(self)
 
         if self.env.get( "EUDAQ_VERSION", "" ):
-            self.env[ "EUDAQ" ] = self.installPath + "/eudaq/" + self.env["EUDAQ_VERSION"]
+            self.env[ "EUDAQ" ] = self.installPath + "/external/eudaq/" + os.path.basename(self.env["EUDAQ_VERSION"])
 
         if self.env.get( "MILLEPEDEII_VERSION", "" ):
-            self.env[ "MILLEPEDEII" ] = self.installPath + "/millepede2/" + self.env["MILLEPEDEII_VERSION"]
+            self.env[ "MILLEPEDEII" ] = self.installPath + "/external/millepede2/" + self.env["MILLEPEDEII_VERSION"]
             self.envpath["PATH"].append( '$MILLEPEDEII' )
 
 

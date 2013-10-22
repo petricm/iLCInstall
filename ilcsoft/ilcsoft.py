@@ -62,12 +62,18 @@ class ILCSoft:
         self.debugInfo['UNAME']=getoutput( "uname -a" ).strip()
         self.debugInfo['LSB_RELEASE']=getoutput( "lsb_release -a 2>/dev/null" ).strip()
         self.debugInfo['GCC_VERSION']=getoutput( "gcc --version | head -n1" ).strip()
+        release_string = getoutput( "lsb_release -d 2>/dev/null").strip()
 
-        print
+        #fg: release_string might be empty, e.g. if lsb_release does not exis (MacOs)
+        self.release_number = '-1'
+        if len( release_string ): 
+            self.release_number = release_string[re.search('\d', release_string).start()]
+        
         for k,v in self.debugInfo.iteritems():
             print "+", k, '\t', str(v).replace("\n","\n\t\t")
 
         print
+
 
     
     def use(self, module):
@@ -375,7 +381,10 @@ class ILCSoft:
         if self.os.type == "Darwin":
             f.write( os.linesep + '# --- set DYLD_LIBRARY_PATH to LD_LIBRARY_PATH for MAC compatibility ---' + os.linesep )
             f.write( 'export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DYLD_LIBRARY_PATH' + os.linesep + os.linesep )
-        f.close()
+        if ( self.os.ver.find("cientific") and self.release_number == '6'):
+            f.write( os.linesep + '# ---  Workaraund for OpenGl bug on SL6  ---' + os.linesep )
+            f.write( 'export LIBGL_ALWAYS_INDIRECT=1' + os.linesep  )
+
 
         print "\n" + 30*'*' + " Creating symlinks " + 30*'*' + "\n"
         for mod in self.modules:

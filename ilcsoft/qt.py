@@ -64,16 +64,17 @@ class QT(BaseILC):
         else:
             return str(v)
 
+
     def setMode(self, mode):
         BaseILC.setMode(self, mode)
 
         if( Version( self.version ) < '4.6' ):
-            self.download.url = "ftp://ftp.trolltech.com/qt/source/qt-x11-opensource-src-%s.tar.gz" % (self.version,)
+            self.download.url = "http://download.qt-project.org/archive/qt/%s/qt-x11-opensource-src-%s.tar.gz" % (self.version[:3], self.version,)
 
             if self.os_ver.type == "Darwin":
-                self.download.url = "ftp://ftp.trolltech.com/qt/source/qt-mac-opensource-src-%s.tar.gz" % (self.version,)
+                self.download.url = "http://download.qt-project.org/archive/qt/%s/qt-mac-opensource-src-%s.tar.gz" % (self.version[:3], self.version,)
         else:
-            self.download.url = "ftp://ftp.trolltech.com/qt/source/qt-everywhere-opensource-src-%s.tar.gz" % (self.version,)
+            self.download.url = "http://download.qt-project.org/archive/qt/%s/qt-everywhere-opensource-src-%s.tar.gz" % (self.version[:3], self.version,)
 
     def compile(self):
         """ compile QT """
@@ -83,7 +84,9 @@ class QT(BaseILC):
         if( self.rebuild ):
             os.system( "make distclean" )
 
-        qt_cfg_options = " -prefix-install -fast -make libs -no-separate-debug-info -no-xkb -no-xinerama -no-qt3support"
+#        qt_cfg_options = " -prefix-install -fast -make libs -no-separate-debug-info -no-xkb -no-xinerama -no-qt3support"
+#fg: enable qt3-support (on request from Klaus)       
+        qt_cfg_options = " -prefix-install -fast -make libs -no-separate-debug-info -no-xkb -no-xinerama"
         
         if( Version( self.version ) < '4.5' ):
             qt_cfg_options += " -no-tablet"

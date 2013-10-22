@@ -17,7 +17,7 @@ from ced import CED
 from kaltest import KalTest, KalDet
 from pathfinder import PathFinder
 from bbq import BBQ
-
+from gbl import GBL
 
 # marlin & friends
 from marlinpkg import MarlinPKG
@@ -38,6 +38,14 @@ from fastjet import FastJet, FastJetClustering
 from marlintrk import MarlinTrk
 from kitrack import KiTrack, KiTrackMarlin
 
+#slic et al
+from gdml import GDML
+from lcdd import LCDD
+from slic import SLIC
+
+#aida
+from dd4hep import DD4hep 
+
 # simtools
 #from simtoolsmaker import SimToolsMaker
 from simtools import *  # modules defined in simtools/__init__.py
@@ -54,8 +62,12 @@ from cernlib import CERNLIB
 from clhep import CLHEP
 from heppdt import HepPDT
 from gsl import GSL
+from xercesc import XercesC
+from heppdt import HepPDT
 from qt import QT
 from dcap import dcap
+
+
 
 # external (without install support)
 from root import ROOT

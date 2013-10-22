@@ -1,6 +1,6 @@
 ##################################################
 #
-# HepPDT module
+# XercesC module
 #
 # Author: F.Gaede, DESY
 # based on GSL module by J. Engels, Desy
@@ -13,11 +13,11 @@ from baseilc import BaseILC
 from util import *
 
 
-class HepPDT(BaseILC):
-    """ Responsible for the HepPDT installation process. """
+class XercesC(BaseILC):
+    """ Responsible for the XercesC installation process. """
     
     def __init__(self, userInput):
-        BaseILC.__init__(self, userInput, "HepPDT","heppdt")
+        BaseILC.__init__(self, userInput, "XercesC","xercesc")
 
         # no cmake build support
         self.hasCMakeBuildSupport = False
@@ -26,16 +26,14 @@ class HepPDT(BaseILC):
         self.download.supportedTypes = ["wget"]
 
         self.reqfiles = [[
-                "lib/libHepPDT.a",
-                "lib/libHepPDT.dylib",
-                "lib/libHepPID.a",
-                "lib/libHepPID.dylib",
+                "lib/libxerces-c.a",
+                "lib/libxerces-c.dylib",
         ]]
     
     def setMode(self, mode):
         BaseILC.setMode(self, mode)
 
-        self.download.url = "http://lcgapp.cern.ch/project/simu/HepPDT/download/HepPDT-" + self.version + ".tar.gz"
+        self.download.url = "http://www.apache.org/dist/xerces/c/3/sources/xerces-c-" + self.version + ".tar.gz"
         
     def downloadSources(self):
         BaseILC.downloadSources(self)
@@ -48,7 +46,7 @@ class HepPDT(BaseILC):
         trymakedir( self.installPath + "/build" )
 
     def compile(self):
-        """ compile HepPDT """
+        """ compile XercesC """
 
         os.chdir( self.installPath + "/build" )
 
@@ -72,6 +70,6 @@ class HepPDT(BaseILC):
     def postCheckDeps(self):
         BaseILC.postCheckDeps(self)
 
-        self.env["HepPDT_HOME"] = self.installPath
-        self.envpath["PATH"].append( "$HepPDT_HOME/bin" )
-        self.envpath["LD_LIBRARY_PATH"].append( "$HepPDT_HOME/lib" )
+        self.env["XercesC_HOME"] = self.installPath
+        self.envpath["PATH"].append( "$XercesC_HOME/bin" )
+        self.envpath["LD_LIBRARY_PATH"].append( "$XercesC_HOME/lib" )
