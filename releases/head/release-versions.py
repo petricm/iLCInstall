@@ -8,7 +8,7 @@
 
 
 # --------- ilcsoft release version ------------------------------------------
-ilcsoft_release='v01-17-03'
+ilcsoft_release='head'
 # ----------------------------------------------------------------------------
 
 
@@ -64,109 +64,105 @@ CERNLIB_path = ilcPath + "/cernlib/" + CERNLIB_version
 
 # ======================= PACKAGE VERSIONS ===================================
 
+## don't touch: base install versions ! ##
+ILCUTIL_version = "v01-01" 
+CondDBMySQL_version = "CondDBMySQL_ILC-0-9-6"
+CED_version = "v01-09-01"
+FastJet_version = "2.4.2"
+XercesC_version = "3.1.1" 
 Geant4_version = "9.6.p01"
-
 ROOT_version = "5.34.05" 
-
 CLHEP_version = "2.1.3.1"
-
 GSL_version = "1.14"
-
 QT_version = "4.7.4"
-
 CMake_version = "2.8.5"
 
 
 # -------------------------------------------
 
-LCIO_version = "v02-04-02" 
+LCIO_version = "HEAD" # "v02-04-02" 
 
-GEAR_version = "v01-03-01" 
+GEAR_version = "HEAD" # "v01-03-01" 
 
-CED_version = "v01-09-01"
 
-CondDBMySQL_version = "CondDBMySQL_ILC-0-9-6"
 
-ILCUTIL_version = "v01-01" 
 
-FastJet_version = "2.4.2"
-FastJetClustering_version = "v00-02"
-MarlinFastJet_version = "v00-01"
+FastJetClustering_version = "HEAD" # "v00-02"
+MarlinFastJet_version = "HEAD" # "v00-01"
 
 
 # -------------------------------------------
 
-KalTest_version = "v01-05-03"
+KalTest_version = "HEAD" # "v01-05-03"
 
-KalDet_version = "v01-12"
+KalDet_version = "HEAD" # "v01-12"
 
-GBL_version = "V01-15-03"
+GBL_version = "HEAD" # "V01-15-03"
 
-LCCD_version = "v01-03"
+LCCD_version = "HEAD" # "HEAD" #"""v01-03"
 
-RAIDA_version = "v01-06-02"
+RAIDA_version = "HEAD" # "v01-06-02"
 
-MarlinUtil_version = "v01-07-01"
+MarlinUtil_version = "HEAD" # "HEAD" #"v01-07-01"
 
-Marlin_version = "v01-05"
+Marlin_version = "HEAD" # "HEAD" # ""v01-05"
 
-Mokka_version = "mokka-08-02" 
+Mokka_version = "HEAD" # "HEAD" #"mokka-08-02" 
 
-MarlinReco_version = "v01-07"
+MarlinReco_version = "HEAD" # "v01-07"
 
-MarlinTrk_version = "v01-11"
+MarlinTrk_version = "HEAD" # "v01-11"
 
-MarlinTrkProcessors_version = "v01-09-01"
+MarlinTrkProcessors_version = "HEAD" # "v01-09-01"
 
-Clupatra_version = "v00-10"
+Clupatra_version = "HEAD" # "v00-10"
 
-LCFIVertex_version = "v00-06-01"
-LCFIPlus_version = "v00-05-02"
+LCFIVertex_version = "HEAD" # "v00-06-01"
+LCFIPlus_version = "HEAD" # "v00-05-02"
 
-KiTrack_version = "v01-04"
-KiTrackMarlin_version = "v01-04"
-ForwardTracking_version = "v01-07"
+KiTrack_version = "HEAD" # "v01-04"
+KiTrackMarlin_version = "HEAD" # "v01-04"
+ForwardTracking_version = "HEAD" # "v01-07"
 
-MarlinKinfit_version = "v00-01-02"
+MarlinKinfit_version = "HEAD" # "v00-01-02"
 
-PandoraPFANew_version = "v00-12" #"v00-09"
-MarlinPandora_version = "v00-11" #"v00-09-02"
-PandoraAnalysis_version = "v00-05" #"v00-04"
+PandoraPFANew_version = "HEAD" # "v00-12" #"v00-09"
+MarlinPandora_version = "HEAD" # "v00-11" #"v00-09-02"
+PandoraAnalysis_version = "HEAD" # "v00-05" #"v00-04"
 
-CEDViewer_version = "v01-07"
+CEDViewer_version = "HEAD" # "v01-07"
 
-Overlay_version = "v00-13"
+Overlay_version = "HEAD" # "v00-13"
 
-PathFinder_version =  "v00-05"
+PathFinder_version = "HEAD" #  "v00-05"
 
-MarlinTPC_version = "v00-14"
+MarlinTPC_version = "HEAD" # "v00-14"
 
-LCTuple_version = "v01-03"
+LCTuple_version = "HEAD" # "v01-03"
 
-BBQ_version =  "v00-01-02"
+BBQ_version = "HEAD" #  "v00-01-02"
 
-Druid_version = "2.2" # "1.8" 
+Druid_version = "HEAD" # "2.2" # "1.8" 
 
-Garlic_version = "v2.10.1"
+Garlic_version = "HEAD" # "v2.10.1"
 
 
 
 #--- slic et al:
 
-XercesC_version = "3.1.1" 
 
-HepPDT_version = "3.04.01"
+HepPDT_version = "HEAD" # "3.04.01"
 
 # new versions by J. McCormick
-GDML_version = "v03-00-00"
-LCDD_version = "v03-02-00"
-SLIC_version = "v03-01-03"  
+GDML_version = "HEAD" # "v03-00-00"
+LCDD_version = "HEAD" # "v03-02-00"
+SLIC_version = "HEAD" # "v03-01-03"  
 
-DD4hep_version = "v00-04"
+DD4hep_version = "HEAD" # "v00-04"
 
 
 
 #--- EUTelescope et al:
-Eutelescope_version = "v00-09-02" # or: "HEAD" for dev version
-Eudaq_version = "tags/v01-01-00" # or: "trunk" for dev version (i.e. git master at https://github.com/eudaq/eudaq)
-Millepede2_version = 'tags/V04-00-02'
+Eutelescope_version = "HEAD" # "v00-09-02" # or: "HEAD" for dev version
+Eudaq_version = "HEAD" # "tags/v01-01-00" # or: "trunk" for dev version (i.e. git master at https://github.com/eudaq/eudaq)
+Millepede2_version = "HEAD" # 'tags/V04-00-02'
