@@ -331,9 +331,9 @@ class ILCSoft:
         f.write( os.linesep )
         f2.write( os.linesep )
 
-        useCxx11 = unicode("OFF")
-        if "USE_CXX11" in self.envcmake:
-            useCxx11 = unicode(self.envcmake["USE_CXX11"])
+        iLCSoftCXXStandard = 11
+        if "ILCSOFT_CXX_STANDARD" in self.envcmake:
+            iLCSoftCXXStandard = unicode(self.envcmake["iLCSoftCXXStandard"])
 
         noBoostCMake = unicode("OFF")
         if "Boost_NO_BOOST_CMAKE" in self.envcmake:
@@ -341,7 +341,7 @@ class ILCSoft:
             print "*********  setting Boost_NO_BOOST_CMAKE to : "  , noBoostCMake  
 
         #write some CMAKE env variables so the user can build an individual package  
-        f.write( "option(USE_CXX11" + " \"Use cxx11\" " + useCxx11 +")" )
+        f.write( "option(ILCSOFT_CXX_STANDARD" + " \"Use CXX Standard\" " + iLCSoftCXXStandard +")" )
         f.write( os.linesep )
         f.write( "option(Boost_NO_BOOST_CMAKE"  + " " + "\"dont use cmake find module for boost\"" + " " + noBoostCMake +")"  )
         f.write( os.linesep )
