@@ -10,4 +10,4 @@ script:
   - echo $PYTHONPATH
   - .travis-ci.d/run-unittests.sh
 after_success:
-  - coveralls
+  - codecov
