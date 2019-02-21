@@ -78,6 +78,14 @@ class Version( object ):
       self.pre += 1
     return str(self)
 
+  def __dummy( self ):
+    """ return version with prerelease version incremented """
+    if self.pre is None:
+        self.pre = 0
+    else:
+        self.pre += 1
+    return str(self)
+
   def increment( self ):
     """ return the version string incremented by patch or pre-release
     if version was pre-release we increment the pre-release if we want to have a pre-release
